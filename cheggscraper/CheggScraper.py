@@ -154,14 +154,11 @@ class CheggScraper:
         :return: dictionary of key value pairs of key value pairs
         :rtype: dict
         """
-        ret = {}
-        cookie_pairs = cookie_str.split(';')
-        for pair in cookie_pairs:
-            key, value = pair.split('=', 1)
-            key = key.strip()
-            value = value.strip()
-            ret.update({key: value})
-        return ret
+        cookies_dict={}
+        for cookie in cookie_str.split(';'):
+            cookies_dict[cookie.split('=')[0]]=cookie.split('=')[-1]
+        return cookies_dict
+
 
     @staticmethod
     def parse_json(json_string: str) -> (bool, dict):
