@@ -3,3 +3,4 @@ lxml
 requests
 setuptools
 Jinja2
+flask
